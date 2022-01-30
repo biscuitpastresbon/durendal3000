@@ -1,0 +1,23 @@
+{
+  "name": "durendal3000",
+  "version": "1.0.0",
+  "description": "meilleur e-critique de cinema cross-atlantique",
+  "main": "bot.js",
+  "scripts": {
+    "test": "echo \\\"Error: no test specified\\\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/biscuitpastresbon/durendal3000.git"
+  },
+  "author": "Logan Cameron",
+  "license": "GPL-3.0-or-later",
+  "bugs": {
+    "url": "https://github.com/biscuitpastresbon/durendal3000/issues"
+  },
+  "homepage": "https://github.com/biscuitpastresbon/durendal3000#readme",
+  "devDependencies": {
+    "@nyakimov/senscritique-api": "^1.1.5",
+    "@types/node": "^17.0.13"
+  }
+}

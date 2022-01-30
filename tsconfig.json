@@ -1,0 +1,22 @@
+{
+  "compilerOptions": {
+    "outDir": "out",
+    "target": "es6",
+    "module": "commonjs",
+    "declaration": true,
+    "removeComments": true,
+    "noUnusedLocals": true,
+    "resolveJsonModule": true,
+    "esModuleInterop": true,
+    "sourceMap": true,
+    "forceConsistentCasingInFileNames": true,
+    "skipLibCheck": true
+  },
+  "scripts": {
+    "test": "echo \"Error: no tests installed\" && exit 1",
+    "build": "tsc",
+    "start": "node server.js"
+  },
+  "include": ["*.ts", "**/*.ts"],
+  "exclude": ["node_modules", "**/*.d.ts", "dist"]
+}
