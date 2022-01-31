@@ -16,7 +16,7 @@ enum Type {
 function doSearch(query:string, type?:Type|string){
     function typeMatch(toMatch:Type|string=Type.All): boolean {
         if (typeof toMatch === 'string'){
-            toMatch = Type[toMatch]
+            toMatch = Type[toMatch as keyof typeof Type]
         }
         return type == toMatch||toMatch==Type.All
     }
@@ -47,7 +47,7 @@ function doSearch(query:string, type?:Type|string){
             console.log('Could you be more specific? Found:\n -', stringMatch.slice(undefined, 1).join('\n - '));
             return stringMatch
         }
-        console.log(`no match found for ${Type[type]} ${query}:(`)
+        console.log(`no match found for ${Type[type]} ${query} :(`)
     })
 }
 
