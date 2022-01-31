@@ -47,7 +47,8 @@ function doSearch(query:string, type?:Type|string){
             console.log('Could you be more specific? Found:\n -', stringMatch.slice(undefined, 1).join('\n - '));
             return stringMatch
         }
-        console.log(`no match found for ${Type[type]} ${query} :(`)
+        console.log(`no match found for ${Type[type as keyof typeof Type]} ${query} :(`)
+				return null
     })
 }
 
