@@ -1,24 +1,12 @@
 import * as sc from '@nyakimov/senscritique-api'
 
 
-enum Type {
-    All,
-    Film,
-    Série,
-    Jeu,
-    Livre,
-    BD,
-    Album,
-    Morceau
-}
+type Media = `All` | `Film` | `Série` | `Jeu` | `Livre` | `BD` | `Album` | `Morceau`
 
 
-function doSearch(query:string, type?:Type|string){
-    function typeMatch(toMatch:Type|string=Type.All): boolean {
-        if (typeof toMatch === 'string'){
-            toMatch = Type[toMatch as keyof typeof Type]
-        }
-        return type == toMatch||toMatch==Type.All
+export function doSearch(query:string, type?:Media){
+    function typeMatch(toMatch:Media|string=`All`): boolean {
+        return type == toMatch||toMatch==`All`
     }
     function exactTitleMatch(title: string): boolean {
         return title.toLowerCase() == query.toLowerCase()
@@ -47,12 +35,7 @@ function doSearch(query:string, type?:Type|string){
             console.log('Could you be more specific? Found:\n -', stringMatch.slice(undefined, 1).join('\n - '));
             return stringMatch
         }
-        console.log(`no match found for ${Type[type as keyof typeof Type]} ${query} :(`)
+        console.log(`no match found for ${type} ${query} :(`)
 				return null
     })
 }
-
-doSearch(`the witcher 3`, Type.Jeu)
-doSearch(`spongebob`, Type.Série)
-doSearch(`eraserhead`, Type.Film)
-doSearch(`eraserhead`, Type.Jeu)
