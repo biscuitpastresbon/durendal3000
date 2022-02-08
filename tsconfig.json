@@ -1,17 +1,26 @@
 {
 	"extends": "gts/tsconfig.json",
 	"compilerOptions": {
-		"rootDir": ".",
+		"rootDir": "./src/",
+		"outDir": "./build/",
 		"module": "commonjs",
 		"moduleResolution": "node",
 		"experimentalDecorators": true,
 		"emitDecoratorMetadata": true,
-		"watch": true
+		"importHelpers": true,
+		"allowSyntheticDefaultImports": true,
+		"forceConsistentCasingInFileNames": true,
+		"removeComments": true,
+		"watch": true,
+		"typeRoots": [
+			"node_modules/@types"
+		]
 	},
 	"scripts": {
+		"start": "ts-node src/bot.ts",
 		"test": "jest"
 	},
 	"include": [
-		"**/*.ts"
+		"./**/*.ts"
 	]
 }
