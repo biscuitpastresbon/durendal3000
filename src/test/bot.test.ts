@@ -14,5 +14,5 @@ test('should be a discord bot', () => {
 test('should be authenticated with Discord', () => {
 	ready(durbot)
 	durbot.login(BOT_TOKEN)
-	expect(durbot.guilds.cache.)
+	expect(durbot.guilds.cache)
 });
