@@ -1,8 +1,17 @@
 {
 	"extends": "gts/tsconfig.json",
 	"compilerOptions": {
+		"rootDir": ".",
+		"module": "commonjs",
 		"moduleResolution": "node",
 		"experimentalDecorators": true,
 		"emitDecoratorMetadata": true,
-	}
+		"watch": true
+	},
+	"scripts": {
+		"test": "jest"
+	},
+	"include": [
+		"**/*.ts"
+	]
 }
