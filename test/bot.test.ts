@@ -4,7 +4,7 @@ import { interactionCreate } from '../src/listeners/interactionCreate';
 import { BOT_TOKEN } from '../src/token';
 import { Message, Guild, Channel, TextChannel } from 'discord.js';
 
-
+https://discord.com/api/oauth2/authorize?client_id=936127388083953714&permissions=544857390161&scope=applications.commands%20bot
 describe("DurendalBot", () => {
   let bot: DurendalBot;
 
