@@ -2,13 +2,13 @@
   "name": "durendal3000",
   "version": "1.0.0",
   "description": "meilleur e-critique de cinema cross-atlantique",
-  "main": "start.js",
+  "main": "discord/start.js",
   "scripts": {
     "prebuild": "gulp --gulpfile gulpfile-clear.json",
     "lint": "eslint --ext .js,.ts .",
     "build": "tsc",
     "test": "jest",
-    "start": "ts-node src/start.ts",
+    "start": "ts-node src/discord/start.ts",
     "test:coverage": "nyc npm test"
   },
   "repository": {

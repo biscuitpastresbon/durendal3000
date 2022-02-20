@@ -1,5 +1,5 @@
-import { Client } from 'discord.js';
 import { Commands } from '../commands';
+import { Client } from 'discord.js';
 
 
 export function ready(client: Client): void {
@@ -15,3 +15,11 @@ export function ready(client: Client): void {
 
 	})
 }
+
+const bot = new Client({
+	intents: []
+})
+ready(bot)
+
+bot.login(process.env['TOKEN_DURENDAL'])
+

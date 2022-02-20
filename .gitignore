@@ -63,3 +63,4 @@ typings/
 # release files
 build
 dist
+src/discord/config.json
