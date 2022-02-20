@@ -1,32 +1,32 @@
-// import { DurendalBot } from '../src/durendalBot'
-// import { ready } from '../src/listeners/ready';
-// import { interactionCreate } from '../src/listeners/interaction_create';
+import { DurendalBot } from '../src/durendalBot'
+import { ready } from '../src/listeners/ready';
+import { interactionCreate } from '../src/listeners/interactionCreate';
+import { BOT_TOKEN } from '../src/token';
+import { Message, Guild, Channel, TextChannel } from 'discord.js';
 
-// const BOT_TOKEN = 'OTM2MTI3Mzg4MDgzOTUzNzE0.YfIqkQ.K3dsovdcGsSPorj245gcYDGKAAM'
 
-// describe("DurendalBot", () => {
-//   let bot: DurendalBot;
+describe("DurendalBot", () => {
+  let bot: DurendalBot;
 
-//   beforeEach(() => {
-//     bot = new DurendalBot({
-// 		intents: []
-// 	});
-// 	ready(bot)
-// 	interactionCreate(bot)
-// 	bot.login(BOT_TOKEN)
-//   })
+  beforeEach(() => {
+    bot = new DurendalBot({
+		intents: []
+	});
+	ready(bot)
+	interactionCreate(bot)
+	bot.login(BOT_TOKEN)
+	const testGuild = new Guild(bot, )
+	})
 
-//   test('!ping message should respond with "pong"', () => {
-//     const messageContent = '!ping';
-//     const expectedResponse = 'pong';
+  test('/hello message should respond with "Hello there!"', () => {
+    const messageContent = new APIMess('/hello');
+    const expectedResponse = 'Hello there!';
 
-//     const message = new Message(chatRoom, messageContent);
+    const message = message
 
-//     bot.handleMessage(message);
-
-//     // Only one message should be sent
-//     expect(chatRoom.sendMessage).toBeCalledTimes(1);
-//     // The message sent should be 'pong'
-//     expect(chatRoom.sendMessage).toBeCalledWith(expectedResponse);
-//   })
-// })
+    // Only one message should be sent
+    expect(chatRoom.sendMessage).toBeCalledTimes(1);
+    // The message sent should be 'pong'
+    expect(chatRoom.sendMessage).toBeCalledWith(expectedResponse);
+  })
+})
