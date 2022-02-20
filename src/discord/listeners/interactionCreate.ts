@@ -7,6 +7,7 @@ export function interactionCreate(client: DurendalBot): void {
 	client.on("interactionCreate", async (interaction: Interaction) => {
 		if (!(interaction.isCommand() || interaction.isContextMenu())) return;
 
+		console.log(`${interaction.user.tag} in #${interaction.channelId} triggered an interaction.`);
 		await handleSlashCommand(client, interaction)
 	})
 }

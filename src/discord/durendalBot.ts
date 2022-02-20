@@ -6,5 +6,3 @@ export class DurendalBot extends Client {
 		super(options)
 	}
 }
-
-
