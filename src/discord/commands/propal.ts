@@ -1,18 +1,22 @@
-import { Command } from '../command';
+import { SlashCommandBuilder, SlashCommandStringOption } from '@discordjs/builders';
 import { BaseCommandInteraction } from 'discord.js';
-import { DurendalBot } from '../durendalBot';
+import { search, Media } from '../../search';
 
 
-export const Propal: Command = {
-	name: 'propal',
-	description: "Propal a fouiller sur SC",
-	type: "CHAT_INPUT",
-	run: async (client: DurendalBot, interaction: BaseCommandInteraction) => {
-		const content = "Hello there!"
+const stringOption = new SlashCommandStringOption()
+stringOption.setName('title')
+stringOption.setDescription('Title to search for')
+stringOption.setRequired(true)
 
-		await interaction.followUp({
-			ephemeral: true,
-			content
-		})
-}
+module.exports = {
+	data: new SlashCommandBuilder()
+		.setName('propal')
+		.addStringOption(stringOption),
+	async execute(interaction: BaseCommandInteraction) {
+		const title = interaction.options.get('title')
+		console.log('Searching for %s...', title);
+		const results = await search(interaction.options.get('title') as unknown as string, interaction.options.get('category') as unknown as Media)
+		console.log(results.toString())
+		await interaction.reply(results.toString())
+	},
 }

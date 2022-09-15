@@ -1,5 +1,5 @@
-import { BaseCommandInteraction, Interaction } from 'discord.js';
-import { Commands } from '../commands';
+import { Interaction } from 'discord.js';
+import { Command } from '../command';
 import { DurendalBot } from '../durendalBot';
 
 
@@ -7,17 +7,15 @@ export function interactionCreate(client: DurendalBot): void {
 	client.on("interactionCreate", async (interaction: Interaction) => {
 		if (!(interaction.isCommand() || interaction.isContextMenu())) return;
 
-		console.log(`${interaction.user.tag} in #${interaction.channelId} triggered an interaction.`);
-		await handleSlashCommand(client, interaction)
-	})
-}
+		const command = client.commands.get(interaction.commandName) as unknown as Command
 
-export async function handleSlashCommand(client: DurendalBot, interaction: BaseCommandInteraction): Promise<void> {
-	const slashCommand = Commands.find(c => c.name === interaction.commandName)
-	if (!slashCommand) {
-		interaction.followUp({ content: `command ${interaction.commandName} doesn't exist!` })
-		return
-	}
-	await interaction.deferReply()
-	slashCommand.run(client, interaction)
+		if (!command) return
+
+		try {
+			await command.execute(interaction)
+		} catch (error) {
+			console.error(error)
+			await interaction.reply({content: 'There was an error while executing this command!', ephemeral: true})
+		}
+	})
 }

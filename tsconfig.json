@@ -30,5 +30,5 @@
 	"exclude": [
 	  "test/fixtures/**/*.*",
 	  "template/**/*.*",
-	]
+	],
 }

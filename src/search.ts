@@ -2,7 +2,7 @@ import * as sc from '@nyakimov/senscritique-api'
 import { SearchResponse, Entry } from '../../senscritique-api/out/utils/typedef';
 
 
-type Media = `All` | `Film` | `Série` | `Jeu` | `Livre` | `BD` | `Album` | `Morceau`
+export type Media = `All` | `Film` | `Série` | `Jeu` | `Livre` | `BD` | `Album` | `Morceau`
 
 
 export async function search(query:string, type?:Media): Promise<Entry[]>{
