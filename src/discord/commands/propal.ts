@@ -1,22 +1,30 @@
 import { SlashCommandBuilder, SlashCommandStringOption } from '@discordjs/builders';
 import { BaseCommandInteraction } from 'discord.js';
-import { search, Media } from '../../search';
+import { search } from '../../search';
+import { Media } from "../../Media";
 
 
-const stringOption = new SlashCommandStringOption()
-stringOption.setName('title')
-stringOption.setDescription('Title to search for')
-stringOption.setRequired(true)
+function getOption (name: string, description: string, required: boolean) {
+	return new SlashCommandStringOption()
+		.setName(name)
+		.setDescription(description)
+		.setRequired(required)
+}
 
 module.exports = {
 	data: new SlashCommandBuilder()
 		.setName('propal')
-		.addStringOption(stringOption),
+		.setDescription('Pick a choice! Any choice!')
+		.addStringOption(getOption('title', 'Title to seach for', true))
+		.addStringOption(getOption('category', 'Category to search in', true)),
 	async execute(interaction: BaseCommandInteraction) {
 		const title = interaction.options.get('title')
-		console.log('Searching for %s...', title);
-		const results = await search(interaction.options.get('title') as unknown as string, interaction.options.get('category') as unknown as Media)
-		console.log(results.toString())
-		await interaction.reply(results.toString())
+		const category = interaction.options.get('category')
+		console.log(`Searching for ${title?.value} in ${category?.value}...`)
+		await search(title?.value as string, category as unknown as Media).then( r => {
+			console.log(r.toString())
+			interaction.reply(`Found these: ${r.toString()}~~`)
+		}
+		)
 	},
 }

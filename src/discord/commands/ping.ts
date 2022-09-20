@@ -6,6 +6,6 @@ module.exports = {
 		.setName('ping')
 		.setDescription('Replies with Pong!'),
 	async execute(interaction: BaseCommandInteraction) {
-		await interaction.reply('Pong!')
+		await interaction.reply(interaction.channel?.id as string)
 	},
 }

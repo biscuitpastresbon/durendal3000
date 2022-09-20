@@ -22,7 +22,7 @@
         "baseUrl": "./"
 	},
     "files": [
-        "src/discord/start.ts"
+        "src/discord/start.ts", "./src/Media.ts"
     ],
 	"include": [
 	  "src/**/*.ts",

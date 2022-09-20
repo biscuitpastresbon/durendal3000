@@ -20,11 +20,14 @@ describe('DurendalBot', () => {
 	})
 
 	test('hello command should respond with "Hello there!"', async () => {
-		const bot = await botPromise
-		bot.channels.cache.forEach(ch => console.log(ch.id))
+		console.log('hello');
+
+		await botPromise.then(b =>
+			b.channels.cache.forEach(ch => console.log(ch.id))
+		)
 	})
 
-	afterAll( (done) => {
+	afterAll( async (done) => {
 		botPromise.then(b => b.destroy())
 		done()
 	})

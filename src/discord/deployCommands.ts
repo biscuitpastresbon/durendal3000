@@ -12,8 +12,8 @@ const commandFiles = fs.readdirSync('./src/discord/commands').filter(file => fil
 for (const file of commandFiles) {
 	const command: Command = require(`./commands/${file}`)
 	console.log(`Found command: ${command.data.name}`)
-
-	commands.push(command.data.toJSON());
+	const jsonCmd = command.data.toJSON()
+	commands.push(jsonCmd);
 }
 
 const rest = new REST({ version: '9' }).setToken(BOT_TOKEN)

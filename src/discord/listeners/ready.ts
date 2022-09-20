@@ -1,4 +1,4 @@
-import { Client } from 'discord.js';
+import { AnyChannel, Client, TextChannel } from 'discord.js';
 
 
 export function ready(client: Client): void {
@@ -10,6 +10,5 @@ export function ready(client: Client): void {
 
 		client.user.setActivity("les poti senscritiqueurs", { type: "WATCHING"})
 		console.log(`${client.user.username} is online`);
-
 	})
 }
